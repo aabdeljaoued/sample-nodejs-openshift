@@ -1,0 +1,9 @@
+1. Find the route:
+   {{- if .Values.route.enabled }}
+   oc get route {{ include "sample-nodejs-openshift.fullname" . }}
+   {{- else }}
+   Route disabled by values.route.enabled=false
+   {{- end }}
+
+2. Check the app:
+   oc logs deploy/{{ include "sample-nodejs-openshift.fullname" . }}
